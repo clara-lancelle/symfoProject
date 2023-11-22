@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello You!
+{% endblock %}
+
+{% block body %}
+	<h1>Connected as
+		{{ app.user.username }}
+	</h1>
+
+	<a href="{{ path('app_logout') }}">Logout</a>
+{% endblock %}

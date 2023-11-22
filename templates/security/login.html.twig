@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello You!
+{% endblock %}
+
+{% block body %}
+	<style>
+		* {
+			text-align: center;
+		}
+		form {
+			background: #F5F5F5;
+			flex-direction: column;
+			gap: 1rem;
+			margin: 0 auto;
+			display: flex;
+			width: 50%;
+			padding: 2rem;
+		}
+	</style>
+	<form action="{{ path('app_login') }}" method="post">
+		<label for="username">Email:</label>
+		<input type="text" id="username" name="_username" value="{{ last_username }}">
+
+		<label for="password">Password:</label>
+		<input
+		type="password" id="password" name="_password">
+
+		{# If you want to control the URL the user is redirected to on success
+																																																				        <input type="hidden" name="_target_path" value="/account"> #}
+
+		<button type="submit">login</button>
+		{% if error %}
+			<div style="color:red;">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+		{% endif %}
+	</form>
+{% endblock %}
